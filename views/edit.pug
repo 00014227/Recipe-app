@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Edit recipe
+    link(rel="stylesheet" href="/add.css")
+  body
+    h1 Edit recipe
+    form(action=`/edit/${recipe.id}` method='POST')
+      label(for='name') Name:
+      input(type='text' name='name' value=recipe.name required)
+      label(for='ingredients') Ingredients:
+      textarea(name='ingredients' required)= recipe.ingredients
+      label(for='instructions') Instructions:
+      textarea(name='instructions' required)= recipe.instructions
+      label(for='mealType') Meal Type:
+      select(name='mealType')
+        option(value='Breakfast' selected=recipe.mealType === 'Breakfast') Breakfast
+        option(value='Lunch' selected=recipe.mealType === 'Lunch') Lunch
+        option(value='Dinner' selected=recipe.mealType === 'Dinner') Dinner
+        option(value='Dessert' selected=recipe.mealType === 'Dessert') Dessert
+      label(for='dietaryRestrictions') Dietary Restrictions:
+      select(name='dietaryRestrictions')
+        option(value='None' selected=recipe.dietaryRestrictions === 'None') None
+        option(value='Vegetarian' selected=recipe.dietaryRestrictions === 'Vegetarian') Vegetarian
+        option(value='Vegan' selected=recipe.dietaryRestrictions === 'Vegan') Vegan
+        option(value='Gluten-free' selected=recipe.dietaryRestrictions === 'Gluten-free') Gluten-free
+      button(type='submit') Save

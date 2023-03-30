@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Add a new recipe
+    link(rel="stylesheet" href="/add.css")
+  body
+    h1 Add a new recipe
+    form(action='/add' method='POST')
+      label(for='name') Name:
+      input(type='text' name='name' required)
+      label(for='ingredients') Ingredients:
+      textarea(name='ingredients' required)
+      label(for='instructions') Instructions:
+      textarea(name='instructions' required)
+      label(for='mealType') Meal Type:
+      select(name='mealType')
+        option(value='Breakfast') Breakfast
+        option(value='Lunch') Lunch
+        option(value='Dinner') Dinner
+        option(value='Dessert') Dessert
+      label(for='dietaryRestrictions') Dietary Restrictions:
+      select(name='dietaryRestrictions')
+        option(value='None') None
+        option(value='Vegetarian') Vegetarian
+        option(value='Vegan') Vegan
+        option(value='Gluten-free') Gluten-free
+      button(type='submit') Add

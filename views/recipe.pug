@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= recipe.title
+    link(rel="stylesheet" href="/recipe.css")
+  body
+
+    block content
+  .recipe
+    h2= recipe.title
+    p= recipe.description
+    ul
+      each ingredient in recipe.ingredients.split(',')
+        li= ingredient.trim()
+    p= "Instructions: " + recipe.instructions
+    p= "Meal type: " + recipe.mealType
+    p= "Dietary restrictions: " + (Array.isArray(recipe.dietaryRestrictions) ? recipe.dietaryRestrictions.join(", ") : recipe.dietaryRestrictions)
+    form(method="POST" action=`/delete/${recipe.id}`)
+      button(type="submit") Delete
+    a(href=`/edit/${recipe.id}`) Edit
+    a(href="/") Back to Home
